@@ -1,0 +1,56 @@
+{% extends 'default/index.html' %}
+{% block title %}Add Product{% endblock %}
+{% load static %}
+{% block style %}
+<style>
+    .container {
+        max-width: 360px; /* Adjust max-width to fit form */
+        width: 100%;
+        padding: 20px; /* Add some padding around the form */
+        border: 1px solid #ddd; /* Light border color for subtle border */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        background-color: #fff; /* Ensure background color for better contrast */
+    }
+
+    .form-signin {
+        width: 100%;
+    }
+
+    /* Optional: Ensure the container grows and is centered */
+    .vh-100 {
+        height: 100vh; /* Full viewport height */
+    }
+</style>
+{% endblock %}
+{% block body %}
+{% block sub_body1 %}{% endblock %}
+<div class="alert alert-success" role="alert">
+    {{msg}}
+  </div>
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        
+        <form method="post" action="{% url 'add_bill' %}" class="w-100">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" class="form-control" id="productName" name="pname">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control" id="quantity" name="quantity">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="desc">
+            </div>
+            <div class="d-flex justify-content-between w-100">
+                <button type="submit" formaction="{% url 'bill_page' %}" class="btn btn-success">view bill</button>
+                <button type="submit" class="btn btn-success">Add</button>
+                <button type="submit" formaction="{% url 'generate' %}" class="btn btn-success">Generate</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

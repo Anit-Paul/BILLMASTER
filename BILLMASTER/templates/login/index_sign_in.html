@@ -1,0 +1,93 @@
+{% extends 'default/index.html' %} 
+{% block title %}Create Account{% endblock %} 
+{% load static %} 
+{% block style %}
+<style>
+  .div1 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 360px;
+    /* Adjust max-width to fit form */
+    width: 100%;
+    padding: 20px;
+    /* Add some padding around the form */
+    border: 1px solid #ddd;
+    /* Light border color for subtle border */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow effect */
+    background-color: #fff;
+    /* Ensure background color for better contrast */
+  }
+
+  .form-signin {
+    width: 100%;
+  }
+</style>
+{% endblock %} {% block body %}
+{% block label %}{% endblock %}
+<div class="div1">
+  <div class="container d-flex justify-content-center align-items-center">
+    <form
+      class="form-signin"
+      autocomplete="off"
+      method="POST"
+      action="create"
+    >
+      {% csrf_token %}
+      <img
+        class="mb-4"
+        src="{% static 'login/icon.jpg' %}"
+        alt=""
+        width="72"
+        height="72"
+      />
+      <h1 class="h3 mb-3 font-weight-normal">Create Your Account</h1>
+      <label for="inputName" class="sr-only">Name</label>
+      <input
+        type="text"
+        id="inputName"
+        class="form-control mb-3"
+        placeholder="Enter Store Name"
+        required=""
+        name="name"
+      />
+      <label for="inputName" class="sr-only">Email Address</label>
+      <input
+        type="text"
+        id="inputName"
+        class="form-control mb-3"
+        placeholder="Email"
+        required=""
+        name="email"
+      />
+      <label for="inputName" class="sr-only">Password</label>
+      <input
+        type="password"
+        id="inputName"
+        class="form-control mb-3"
+        placeholder="Password"
+        required=""
+        name="password"
+      />
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" /> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">
+        Create Account
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

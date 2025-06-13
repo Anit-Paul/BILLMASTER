@@ -1,0 +1,156 @@
+/* Styles for the body to center the main container */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Makes the body take full viewport height */
+    margin: 0; /* Removes default margin */
+    font-family: Arial, sans-serif; /* Optional: Set a font for the page */
+}
+
+/* Main container styling */
+#main {
+    display: flex;
+    flex-direction: column; /* Stack children (search and view) vertically */
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* 90% of the viewport height */
+    width: 90vw; /* 90% of the viewport width */
+    border: 2px solid black;
+    margin-top: 4vh; /* Top margin using viewport height */
+    max-width: 1200px; /* Optional: max width for large screens */
+    background-color: #f0f0f0; /* Optional: light background color */
+    position: relative; /* Changed to relative to ensure it isn't fixed */
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+    position: fixed;
+}
+
+/* Search bar container styling */
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%; /* 10% of #main's height */
+    width: 80%; /* 80% of #main's width */
+    margin-top: 2vh; /* Margin to separate from the top or other elements */
+    background-color: #ffffff;  
+    padding: 1vh; /* Padding inside the search container */
+}
+
+/* Styling for input and button inside the search */
+#search input[type="text"] {
+    width: 70%; /* 70% width of the search container */
+    padding: 1vh;
+    font-size: 1rem;
+    margin-right: 1vw; /* Space between input and button */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search button {
+    padding: 1vh 2vw; /* Padding for the button */
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* View container styling */
+#view {
+    height: 70%; /* 70% of #main's height */
+    width: 90%; /* 90% of #main's width */
+    border: 2px solid red;
+    margin-top: 2vh; /* Margin to create space between search and view */
+    background-color: #fff; /* Optional: background color */
+    overflow: auto; /* Enable scrolling if content overflows */
+    padding: 0vh 2vh 2vh 2vh; /* Padding inside the view container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: box shadow */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+/* Heading styling */
+#heading {
+    display: flex;
+    justify-content: space-evenly; /* Distribute child elements with equal space around them */
+    border-bottom: 4px solid red; /* Add a bottom border for visual separation */
+    background-color: #fff; /* Optional: sets a background color */
+    width: 100%; /* Full width of the parent */
+    padding: 1vh; /* Padding for some space around the text */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    z-index: 1; /* Make sure heading is above other content if needed */
+    position: sticky; /* Stick the element within its container */
+    top: 0;
+    color: green;
+    font-weight: bolder;
+    font-family:  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* Individual product styling */
+.pro{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 2px solid black;
+}
+#form1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%; /* 10% of #main's height */
+    width: 80%; /* 80% of #main's width */
+    margin-top: 2vh; /* Margin to separate from the top or other elements */
+    background-color: #ffffff; /* Optional: background color */
+    padding: 1vh; /* Padding inside the search container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: box shadow for depth */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.pro p {
+    flex: 1; /* Make each paragraph take equal space */
+    min-width: 0; /* Allow paragraphs to shrink if necessary */
+    height: 3vh; /* Fixed height for all paragraphs */
+    margin: 0; /* Remove default margin */
+    padding: 0.5vh; /* Padding inside each paragraph */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Optional: Add responsive adjustments */
+@media (max-width: 600px) {
+    .pro p {
+        height: 2vh; /* Adjust height for smaller screens */
+        font-size: 0.8rem; /* Adjust font size for better readability */
+    }
+}
+
+#heading p {
+    flex: 1; /* Make each paragraph take equal space */
+    min-width: 0; /* Allow paragraphs to shrink if necessary */
+    height: 3vh; /* Fixed height for all paragraphs */
+    margin: 0; /* Remove default margin */
+    padding: 0.5vh; /* Padding inside each paragraph */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    white-space: nowrap; /* Prevent text wrapping */
+    position: sticky; /* Stick the element within its container */
+    top: 0;
+    color: green;
+    
+    font-family:  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+/* Optional: Add responsive adjustments */
+@media (max-width: 600px) {
+    #heading p {
+        height: 2vh; /* Adjust height for smaller screens */
+        font-size: 0.8rem; /* Adjust font size for better readability */
+    }
+}

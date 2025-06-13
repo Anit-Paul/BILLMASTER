@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #main {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #form1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #form1 h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: rgb(7, 143, 7);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #form1 h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: rgb(7, 143, 7);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #view {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+            color: green;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #form1 {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: center;
+            }
+
+            #form1 h2 {
+                margin-top: 10px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th,
+            td {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #main {
+                padding: 10px;
+            }
+
+            #form1 h2 {
+                font-size: 1.2rem;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th,
+            td {
+                padding: 6px;
+            }
+        }
+        #form1 h2 {
+            margin-bottom: 20px; /* Adjust the space as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="form1">
+            <h1>BILLMASTER</h1>
+            
+        </div>
+        <div id="form1">
+            <h3>Store Mail : {{email}}</h3>
+        </div>
+        <div id="view">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Iterate over products and display them -->
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.product_name }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>Rs. {{ product.cost }}/-</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No products found.</td>
+                    </tr>
+                    {% endfor %}
+
+                    <!-- Display the total cost -->
+                    <tr style="font-weight: bold;">
+                        <td colspan="2">Total Payable Amount:</td>
+                        <td>Rs. {{ cost }}/-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

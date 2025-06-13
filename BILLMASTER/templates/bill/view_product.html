@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <div id="main">
+        <form id="form1" action="{% url 'view_product' %}" method="post">
+            {% csrf_token %}
+            <div id="search">
+                <input type="text" name="search" placeholder="Search for items">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <div id="view">
+            <div id="heading">
+                <p>Name</p>
+                <p>Quantity</p>
+                <p>Cost</p>
+                <p>Descriptions</p>
+            </div>
+
+            <!-- Check if products is being iterated correctly -->
+            {% for product in products %}
+            <div class="pro">
+                <p id="name">{{ product.product_name }}</p>
+                <p id="quantity">{{ product.product_quantity }}</p>
+                <p id="cost">Rs. {{ product.cost }}/-</p>
+                <p id="description">{{ product.description }}</p>
+            </div>
+
+            {% empty %}
+            <p>No products found.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'product.js' %}"></script>
+</body>
+
+</html>
